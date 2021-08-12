@@ -3,7 +3,7 @@ All five assignments, and the final group project is done in class CSCI5408(Data
 <br/>
 
 ## Authors
-* [Dhrumil Rakesh Shah](Dhrumil.Shah@dal.ca) - *(Creator)*
+* [Dhrumil Rakesh Shah](mailto:Dhrumil.Shah@dal.ca) - *(Creator)*
 <br/>
 
 ## Assignments
