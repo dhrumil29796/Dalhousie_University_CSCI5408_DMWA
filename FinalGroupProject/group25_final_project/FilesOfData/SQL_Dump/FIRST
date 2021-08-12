@@ -1,0 +1,43 @@
+{
+			FIRST : [
+				FIRSTTABLE : {
+					PrimaryKey : FIRSTTABLEID
+					ForeignKey : null
+					ColumnStructure : [
+						FIRSTTABLEID : 'Integer' , 
+						NAME : 'String' , 
+						AGE : 'Integer'
+						]
+					FIRSTTABLE : [
+					{
+							FIRSTTABLEID : '1' , 
+							NAME : 'Manraj Singh' , 
+							AGE : '25'
+						} , 
+					{
+							FIRSTTABLEID : '2' , 
+							NAME : 'Vishvesh Bhau' , 
+							AGE : '24'
+						} , 
+					{
+							FIRSTTABLEID : '3' , 
+							NAME : 'Dhrumil Shah' , 
+							AGE : '26'
+						}
+						]
+				} , 
+				SECONDTABLE : {
+					PrimaryKey : SECONDTABLEID
+					ForeignKey : FIRSTTABLEID
+					ColumnStructure : [
+						SECONDTABLEID : 'Integer' , 
+						NAME : 'String' , 
+						AGE : 'Integer' , 
+						FIRSTTABLEID : 'Integer'
+						]
+					SECONDTABLE : [
+
+						]
+				}
+			]
+		}

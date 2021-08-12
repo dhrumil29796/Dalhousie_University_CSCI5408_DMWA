@@ -1,0 +1,105 @@
+show databases
+
+use FIRST
+
+exit
+
+show databases
+insert
+exit
+show databases
+select 
+use COUNTRYERD
+all tables 
+erd
+create table manrajSingh ( rows int, name string, age int, money double, primary rows, foreign money)
+show tables
+all tables
+describe ManrajSingh
+select * from city
+sqldump save
+show databases
+commit
+show databases
+exit
+create database first
+use database
+use first
+create table firstTable (name String, value int, type boolean);
+insert into firstTable (name, value, type) values ('
+insert into firstTable (name, value, type) values ('Manraj Singh', 25, true)
+desc firstTable
+exit
+use first
+insert into firstTable (name, value, type) values ('Manraj Singh', 25, true);
+desc firsttable
+select * from firstTable
+commit
+create table secondTable (secondTableId int, name String,type boolean)
+create table secondTable ( secondTableId int, name String, type boolean, primary secondtableid, foreign name)
+exit
+show databases
+use First
+sqldump get
+show databases
+all tables
+use first
+all tables
+desc secondtable
+commit
+create database rawData
+show databases
+sqldump save
+exit
+show databases
+use first
+commit
+exit
+exit
+commit
+exit
+create database first
+create database second
+show databases
+use first
+create table SecondTable (SecondTableID int, name string, age int, firsttableid int, primary firsttableid, foreign firsttableid )
+all tables
+desc firsttable
+insert into firsttable (name, age, firsttableid) values ('Manraj Singh', 25, 1)
+commit;
+insert into firsttable (name, age, firsttableid) values ('Drumil Shah', 26, 2)
+insert into firsttable (name, age, firsttableid) values ('Vishvesh Bhau', 24, 3)
+commit
+exit
+show databases
+use second
+use first
+all tables
+desc firsttable
+show databases
+use first 
+all tables
+desc firsttable 
+use first
+show databases
+all tables
+desc firsttable
+exit
+show databases
+use first
+show databases
+all tables 
+desc firsttable
+desc firsttable
+use second
+show databases
+use first
+show database
+show databases
+all tables
+desc firsttable
+use first
+show databases
+all tables
+desc firsttable
+exit

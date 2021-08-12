@@ -1,0 +1,66 @@
+
+
+	[ 03/Aug./2021 - Tue. ] #-----------------------------------------------------------------------# 
+
+	####################################
+	Welcome to DVM Relational Database:
+	####################################
+
+1. User registration.
+2. User login.
+3. Exit.
+Select an option:
+show
+
+
+	[ 03/Aug./2021 - Tue. ] #-----------------------------------------------------------------------# 
+
+Error: 
+	Enter Correct Command
+
+	Error: Enter Correct Command
+show databases
+use first
+all tables
+
+
+#----------------------------------------------#
+	 Database::FIRST
+#----------------------------------------------#
+
+		 Table1:: FIRSTTABLE
+		 Table2:: SECONDTABLE
+#----------------------------------------------#
+desc fie
+
+
+	[ 03/Aug./2021 - Tue. ] #-----------------------------------------------------------------------# 
+
+Error: 
+	Table does not exist!!!!
+desc firsttable
+
+#----------------------------------------------#
+	 Database::FIRST		----->		TableName:: FIRSTTABLE
+#----------------------------------------------#
+
+		*Primary Key:		FIRSTTABLEID		----->		Integer
+							NAME		----->		String
+							AGE		----->		Integer
+#----------------------------------------------#
+select * from firstTable
+
+	#-----------------------------------------------------#
+
+
+			SNo.			FIRSTTABLEID			NAME			AGE
+
+			1			1			Manraj Singh			25
+			2			2			Vishvesh Bhau			24
+			3			3			Dhrumil Shah			26
+
+	#-----------------------------------------------------#
+exit
+
+	Exit
+	

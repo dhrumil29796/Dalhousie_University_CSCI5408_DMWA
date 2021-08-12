@@ -1,0 +1,1220 @@
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+show databases
+insert
+exit
+
+	Exit
+	
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+show databases
+select 
+use COUNTRYERD
+all tables 
+
+
+#----------------------------------------------#
+
+	 Database::COUNTRYERD
+
+#----------------------------------------------#
+
+
+		 Table1:: COUNTRY
+
+		 Table2:: CITY
+
+		 Table3:: STATE
+
+#----------------------------------------------#
+
+erd
+
+#----------------------------------------------#
+
+	 Database::COUNTRYERD		----->		TableName:: COUNTRY
+
+#----------------------------------------------#
+
+
+		*Primary Key:
+		COUNTRYID		----->		Integer
+
+					
+		NAME		----->		String
+
+		*Foreign Key:
+		STATEID		----->		Integer
+
+					
+		VACCINATED		----->		Boolean
+
+#----------------------------------------------#
+
+
+#----------------------------------------------#
+
+	 Database::COUNTRYERD		----->		TableName:: CITY
+
+#----------------------------------------------#
+
+
+		*Primary Key:
+		CITYID		----->		Integer
+
+					
+		STATENAME		----->		String
+
+#----------------------------------------------#
+
+
+#----------------------------------------------#
+
+	 Database::COUNTRYERD		----->		TableName:: STATE
+
+#----------------------------------------------#
+
+
+		*Primary Key:
+		STATEID		----->		Integer
+
+					
+		STATENAME		----->		String
+
+		*Foreign Key:
+		CITYID		----->		Integer
+
+#----------------------------------------------#
+
+
+
+#----------------------------------------------------------#
+
+		ER Diagram:
+
+
+#----------------------------------------------------------#
+
+
+
+			Primary Key:	------------>	Foreign Key
+
+
+			CITY	------------>	STATE
+
+			STATE	------------>	COUNTRY
+
+#----------------------------------------------------------#
+
+create table manrajSingh ( rows int, name string, age int, money double, primary rows, foreign money)
+show tables
+all tables
+
+
+#----------------------------------------------#
+
+	 Database::COUNTRYERD
+
+#----------------------------------------------#
+
+
+		 Table1:: MANRAJSINGH
+
+		 Table2:: COUNTRY
+
+		 Table3:: CITY
+
+		 Table4:: STATE
+
+#----------------------------------------------#
+
+describe ManrajSingh
+
+#----------------------------------------------#
+
+	 Database::COUNTRYERD		----->		TableName:: MANRAJSINGH
+
+#----------------------------------------------#
+
+
+		*Primary Key:
+		ROWS		----->		Integer
+
+					
+		NAME		----->		String
+
+					
+		AGE		----->		Integer
+
+		*Foreign Key:
+		MONEY		----->		Double
+
+#----------------------------------------------#
+
+select * from city
+
+	#-----------------------------------------------------#
+
+
+
+
+			
+SNo.
+			
+CITYID
+			
+STATENAME
+
+
+
+			
+1
+			
+1
+			
+Ahmedabad
+
+
+			
+2
+			
+2
+			
+Halifax
+
+
+			
+3
+			
+3
+			
+Mumbai
+
+
+
+	#-----------------------------------------------------#
+
+sqldump save
+
+
+		SQL Dump Written Successfully!!!!
+
+
+show databases
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+commit
+
+	Commit Successful!
+	
+show databases
+exit
+
+	Exit
+	
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+create database first
+use database
+use first
+create table firstTable (name String, value int, type boolean);
+insert into firstTable (name, value, type) values ('
+insert into firstTable (name, value, type) values ('Manraj Singh', 25, true)
+desc firstTable
+
+#----------------------------------------------#
+
+	 Database::FIRST		----->		TableName:: FIRSTTABLE
+
+#----------------------------------------------#
+
+
+					
+		NAME		----->		String
+
+					
+		VALUE		----->		Integer
+
+					
+		TYPE		----->		Boolean
+
+#----------------------------------------------#
+
+exit
+
+	Exit
+	
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+use first
+insert into firstTable (name, value, type) values ('Manraj Singh', 25, true);
+desc firsttable
+
+#----------------------------------------------#
+
+	 Database::FIRST		----->		TableName:: FIRSTTABLE
+
+#----------------------------------------------#
+
+
+					
+		NAME		----->		String
+
+					
+		VALUE		----->		Integer
+
+					
+		TYPE		----->		Boolean
+
+#----------------------------------------------#
+
+select * from firstTable
+
+	#-----------------------------------------------------#
+
+
+
+
+			
+SNo.
+			
+NAME
+			
+VALUE
+			
+TYPE
+
+
+
+			
+1
+			
+Manraj Singh
+			
+25
+			
+true
+
+
+
+	#-----------------------------------------------------#
+
+commit
+
+	Commit Successful!
+	
+create table secondTable (secondTableId int, name String,type boolean)
+create table secondTable ( secondTableId int, name String, type boolean, primary secondtableid, foreign name)
+exit
+
+	Exit
+	
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+show databases
+use First
+sqldump get
+
+#------------------------------------------------#
+
+
+	List of Files:
+
+
+
+#------------------------------------------------#
+
+
+		1 COUNTRYERD
+
+
+		2 FIRST
+
+
+		3 NEWDB
+
+
+#------------------------------------------------#
+
+
+
+	Enter the index of file to add: 
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+show databases
+all tables
+use first
+all tables
+
+
+#----------------------------------------------#
+
+	 Database::FIRST
+
+#----------------------------------------------#
+
+
+		 Table1:: FIRSTTABLE
+
+		 Table2:: SECONDTABLE
+
+#----------------------------------------------#
+
+desc secondtable
+
+#----------------------------------------------#
+
+	 Database::FIRST		----->		TableName:: SECONDTABLE
+
+#----------------------------------------------#
+
+
+		*Primary Key:
+		SECONDTABLEID		----->		Integer
+
+		*Foreign Key:
+		NAME		----->		String
+
+					
+		TYPE		----->		Boolean
+
+#----------------------------------------------#
+
+commit
+
+	Commit Successful!
+	
+create database rawData
+show databases
+sqldump save
+
+
+		SQL Dump Written Successfully!!!!
+
+
+exit
+
+	Exit
+	
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+show databases
+use first
+commit
+
+	Commit Successful!
+	
+exit
+
+	Exit
+	
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+
+	Set username : 
+
+	Set password (alphanumeric) : 
+
+	User registered successfully!
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+
+	Set username : 
+
+	Set password (alphanumeric) : 
+
+	User registered successfully!
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+
+	Set username : 
+
+	Set password (alphanumeric) : 
+
+	User registered successfully!
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+exit
+
+	Exit
+	
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+commit
+
+	Commit Successful!
+	
+exit
+
+	Exit
+	
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+
+	Set username : 
+
+	Set password (alphanumeric) : 
+
+	User registered successfully!
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+create database first
+create database second
+show databases
+use first
+create table firstTable (name string, age int, firstTableID int, primary firsttableid)
+all tables
+
+
+#----------------------------------------------#
+
+	 Database::FIRST
+
+#----------------------------------------------#
+
+
+		 Table1:: FIRSTTABLE
+
+#----------------------------------------------#
+
+desc firsttable
+
+#----------------------------------------------#
+
+	 Database::FIRST		----->		TableName:: FIRSTTABLE
+
+#----------------------------------------------#
+
+
+					
+		NAME		----->		String
+
+					
+		AGE		----->		Integer
+
+		*Primary Key:
+		FIRSTTABLEID		----->		Integer
+
+#----------------------------------------------#
+
+insert into firsttable (name, age, firsttableid) values ('Manraj Singh', 25, 1)
+commit;
+
+	Commit Successful!
+	
+insert into firsttable (name, age, firsttableid) values ('Drumil Shah', 26, 2)
+insert into firsttable (name, age, firsttableid) values ('Vishvesh Bhau', 24, 3)
+commit
+
+	Commit Successful!
+	
+exit
+
+	Exit
+	
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+show databases
+use second
+use first
+all tables
+
+
+#----------------------------------------------#
+
+	 Database::null
+
+#----------------------------------------------#
+
+
+		 Table1:: FIRSTTABLE
+
+#----------------------------------------------#
+
+desc firsttable
+
+#----------------------------------------------#
+
+	 Database::null		----->		TableName:: NAME
+
+#----------------------------------------------#
+
+
+					
+		ColumnStructure		----->		NAME
+
+					
+		String		----->		AGE
+
+					
+		Integer		----->		FIRSTTABLEID
+
+#----------------------------------------------#
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+show databases
+use first 
+all tables
+
+
+#----------------------------------------------#
+
+	 Database::FIRST
+
+#----------------------------------------------#
+
+
+		 Table1:: FIRSTTABLE
+
+#----------------------------------------------#
+
+desc firsttable 
+
+#----------------------------------------------#
+
+	 Database::FIRST		----->		TableName:: NAME
+
+#----------------------------------------------#
+
+
+					
+		ColumnStructure		----->		NAME
+
+					
+		String		----->		AGE
+
+					
+		Integer		----->		FIRSTTABLEID
+
+#----------------------------------------------#
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+use first
+show databases
+all tables
+
+
+#----------------------------------------------#
+
+	 Database::FIRST
+
+#----------------------------------------------#
+
+
+		 Table1:: FIRSTTABLE
+
+#----------------------------------------------#
+
+desc firsttable
+
+#----------------------------------------------#
+
+	 Database::FIRST		----->		TableName:: FIRSTTABLE
+
+#----------------------------------------------#
+
+
+					
+		NAME		----->		String
+
+					
+		AGE		----->		Integer
+
+		*Primary Key:
+		FIRSTTABLEID		----->		Integer
+
+#----------------------------------------------#
+
+exit
+
+	Exit
+	
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+show databases
+use first
+show databases
+all tables 
+
+
+#----------------------------------------------#
+
+	 Database::FIRST
+
+#----------------------------------------------#
+
+
+		 Table1:: FIRSTTABLE
+
+#----------------------------------------------#
+
+desc firsttable
+
+#----------------------------------------------#
+
+	 Database::FIRST		----->		TableName:: NAME
+
+#----------------------------------------------#
+
+
+					
+		ColumnStructure		----->		NAME
+
+					
+		String		----->		AGE
+
+					
+		Integer		----->		FIRSTTABLEID
+
+#----------------------------------------------#
+
+desc firsttable
+
+#----------------------------------------------#
+
+	 Database::FIRST		----->		TableName:: NAME
+
+#----------------------------------------------#
+
+
+					
+		ColumnStructure		----->		NAME
+
+					
+		String		----->		AGE
+
+					
+		Integer		----->		FIRSTTABLEID
+
+#----------------------------------------------#
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+use second
+show databases
+use first
+show database
+show databases
+all tables
+
+
+#----------------------------------------------#
+
+	 Database::FIRST
+
+#----------------------------------------------#
+
+
+		 Table1:: FIRSTTABLE
+
+#----------------------------------------------#
+
+desc firsttable
+
+#----------------------------------------------#
+
+	 Database::FIRST		----->		TableName:: NAME
+
+#----------------------------------------------#
+
+
+					
+		ColumnStructure		----->		NAME
+
+					
+		String		----->		AGE
+
+					
+		Integer		----->		FIRSTTABLEID
+
+#----------------------------------------------#
+
+	####################################
+
+	Welcome to DVM Relational Database:
+
+	####################################
+
+
+1. User registration.
+
+2. User login.
+
+3. Exit.
+
+Select an option:
+
+use first
+show databases
+all tables
+
+
+#----------------------------------------------#
+
+	 Database::FIRST
+
+#----------------------------------------------#
+
+
+		 Table1:: FIRSTTABLE
+
+#----------------------------------------------#
+
+desc firsttable
+
+#----------------------------------------------#
+
+	 Database::FIRST		----->		TableName:: NAME
+
+#----------------------------------------------#
+
+
+					
+		NAME		----->		String
+
+					
+		AGE		----->		Integer
+
+		*Primary Key:
+		FIRSTTABLEID		----->		Integer
+
+#----------------------------------------------#
+
+exit
+
+	Exit
+	
