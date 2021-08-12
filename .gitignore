@@ -21,3 +21,9 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+Assignment1/Problem2/otn_public_datasets_cleaned_normalized/
+Assignment1/Problem3/Cleaned_Dataset/
+Assignment2/Problem2/Olist_Datasets_Filtered/
+Assignment2/Problem2/Olist_Datasets_On_GCP/
+Assignment4/Hourly_Weather_Datasets_Normalized/
