@@ -1,0 +1,302 @@
+----Cypher----
+
+Query to retrieve nodes
+MATCH (n) RETURN n
+MATCH p=()-->() RETURN p
+
+
+Uniqueness constraint
+CREATE CONSTRAINT ON (r:Region) ASSERT r.name IS UNIQUE
+
+
+Drop constraint
+DROP CONSTRAINT ON (r:Region) ASSERT r.name IS UNIQUE
+
+
+Delete query (detaches the relationships and then deletes the node)
+MATCH (r:Region) DETACH DELETE r
+MATCH (p:Park) DETACH DELETE p
+
+
+Create Nodes & Relationships
+CREATE (:Region {name: "The Bay of Fundy Shore and Annapolis Valley", location:"NS"})-[:CONNECTED_TO_REGION]->(:Region {name: "Northumberland Shore", location:"NS"})-[:CONNECTED_TO_REGION]->(:Region {name: "Cape Breton Island", location:"NS"})-[:CONNECTED_TO_REGION]->(:Region {name: "Eastern Shore", location:"NS"})-[:CONNECTED_TO_REGION]->(:Region {name: "Halifax Region Metro", location:"NS"})-[:CONNECTED_TO_REGION]->(:Region {name: "South Shore Region", location:"NS"})-[:CONNECTED_TO_REGION]->(:Region {name: "Yarmouth & Acadian Shore", location:"NS"})
+
+
+Adding a new connection for existing nodes
+--Yarmouth & Acadian Shore--
+MATCH
+(r1:Region {name: "Yarmouth & Acadian Shore"}),
+(r2:Region {name: "The Bay of Fundy Shore and Annapolis Valley"}),
+(r3:Region {name: "South Shore Region"}),
+(r4:Region {name: "Northumberland Shore"}),
+(r5:Region {name: "Cape Breton Island"}),
+(r6:Region {name: "Eastern Shore"}),
+(r7:Region {name: "Halifax Region Metro"})
+CREATE
+(r1)-[:CONNECTED_TO_REGION]->(r2),
+(r1)-[:CONNECTED_TO_REGION]->(r3),
+(r1)-[:CONNECTED_TO_REGION]->(r4),
+(r1)-[:CONNECTED_TO_REGION]->(r5),
+(r1)-[:CONNECTED_TO_REGION]->(r6),
+(r1)-[:CONNECTED_TO_REGION]->(r7)
+
+--South Shore Region--
+MATCH
+(r1:Region {name: "South Shore Region"}),
+(r2:Region {name: "The Bay of Fundy Shore and Annapolis Valley"}),
+(r3:Region {name: "Northumberland Shore"}),
+(r4:Region {name: "Cape Breton Island"}),
+(r5:Region {name: "Eastern Shore"}),
+(r6:Region {name: "Halifax Region Metro"})
+CREATE
+(r1)-[:CONNECTED_TO_REGION]->(r2),
+(r1)-[:CONNECTED_TO_REGION]->(r3),
+(r1)-[:CONNECTED_TO_REGION]->(r4),
+(r1)-[:CONNECTED_TO_REGION]->(r5),
+(r1)-[:CONNECTED_TO_REGION]->(r6)
+
+--Halifax Region Metro--
+MATCH
+(r1:Region {name: "Halifax Region Metro"}),
+(r2:Region {name: "The Bay of Fundy Shore and Annapolis Valley"}),
+(r3:Region {name: "Northumberland Shore"}),
+(r4:Region {name: "Cape Breton Island"}),
+(r5:Region {name: "Eastern Shore"}),
+(r6:Region {name: "Yarmouth & Acadian Shore"})
+CREATE
+(r1)-[:CONNECTED_TO_REGION]->(r2),
+(r1)-[:CONNECTED_TO_REGION]->(r3),
+(r1)-[:CONNECTED_TO_REGION]->(r4),
+(r1)-[:CONNECTED_TO_REGION]->(r5),
+(r1)-[:CONNECTED_TO_REGION]->(r6)
+
+--Eastern Shore--
+MATCH
+(r1:Region {name: "Eastern Shore"}),
+(r2:Region {name: "The Bay of Fundy Shore and Annapolis Valley"}),
+(r3:Region {name: "South Shore Region"}),
+(r4:Region {name: "Northumberland Shore"}),
+(r5:Region {name: "Cape Breton Island"}),
+(r6:Region {name: "Yarmouth & Acadian Shore"})
+CREATE
+(r1)-[:CONNECTED_TO_REGION]->(r2),
+(r1)-[:CONNECTED_TO_REGION]->(r3),
+(r1)-[:CONNECTED_TO_REGION]->(r4),
+(r1)-[:CONNECTED_TO_REGION]->(r5),
+(r1)-[:CONNECTED_TO_REGION]->(r6)
+
+--Cape Breton Island--
+MATCH
+(r1:Region {name: "Cape Breton Island"}),
+(r2:Region {name: "The Bay of Fundy Shore and Annapolis Valley"}),
+(r3:Region {name: "South Shore Region"}),
+(r4:Region {name: "Northumberland Shore"}),
+(r5:Region {name: "Yarmouth & Acadian Shore"}),
+(r6:Region {name: "Halifax Region Metro"})
+CREATE
+(r1)-[:CONNECTED_TO_REGION]->(r2),
+(r1)-[:CONNECTED_TO_REGION]->(r3),
+(r1)-[:CONNECTED_TO_REGION]->(r4),
+(r1)-[:CONNECTED_TO_REGION]->(r5),
+(r1)-[:CONNECTED_TO_REGION]->(r6)
+
+--Northumberland Shore--
+MATCH
+(r1:Region {name: "Northumberland Shore"}),
+(r2:Region {name: "The Bay of Fundy Shore and Annapolis Valley"}),
+(r3:Region {name: "South Shore Region"}),
+(r4:Region {name: "Yarmouth & Acadian Shore"}),
+(r5:Region {name: "Eastern Shore"}),
+(r6:Region {name: "Halifax Region Metro"})
+CREATE
+(r1)-[:CONNECTED_TO_REGION]->(r2),
+(r1)-[:CONNECTED_TO_REGION]->(r3),
+(r1)-[:CONNECTED_TO_REGION]->(r4),
+(r1)-[:CONNECTED_TO_REGION]->(r5),
+(r1)-[:CONNECTED_TO_REGION]->(r6)
+
+--The Bay of Fundy Shore and Annapolis Valley--
+MATCH
+(r1:Region {name: "The Bay of Fundy Shore and Annapolis Valley"}),
+(r2:Region {name: "Yarmouth & Acadian Shore"}),
+(r3:Region {name: "South Shore Region"}),
+(r4:Region {name: "Cape Breton Island"}),
+(r5:Region {name: "Eastern Shore"}),
+(r6:Region {name: "Halifax Region Metro"})
+CREATE
+(r1)-[:CONNECTED_TO_REGION]->(r2),
+(r1)-[:CONNECTED_TO_REGION]->(r3),
+(r1)-[:CONNECTED_TO_REGION]->(r4),
+(r1)-[:CONNECTED_TO_REGION]->(r5),
+(r1)-[:CONNECTED_TO_REGION]->(r6)
+
+
+Creating Park nodes and adding their relationships
+--Yarmouth & Acadian Shore--
+MATCH
+(r:Region {name: "Yarmouth & Acadian Shore"})
+CREATE
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Ellenwood Lake", location:"Yarmouth & Acadian Shore", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Glenwood", location:"Yarmouth & Acadian Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Port Maitland", location:"Yarmouth & Acadian Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Mavillette Beach", location:"Yarmouth & Acadian Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Smugglers Cove", location:"Yarmouth & Acadian Shore", type:"Day Use Park"})
+
+--South Shore Region--
+MATCH
+(r:Region {name: "South Shore Region"})
+CREATE
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Sand Hills Beach", location:"South Shore Region", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Cleveland Beach", location:"South Shore Region", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Queensland Beach", location:"South Shore Region", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Hubbards", location:"South Shore Region", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"The Islands", location:"South Shore Region", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Sable River", location:"South Shore Region", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Thomas Raddall", location:"South Shore Region", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Summerville Beach", location:"South Shore Region", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Ten Mile Lake", location:"South Shore Region", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Camerons Brook", location:"South Shore Region", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Rissers Beach", location:"South Shore Region", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Fancy Lake", location:"South Shore Region", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Cookville", location:"South Shore Region", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Second Peninsula", location:"South Shore Region", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Graves Island", location:"South Shore Region", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Card Lake", location:"South Shore Region", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"East River", location:"South Shore Region", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Bayswater", location:"South Shore Region", type:"Day Use Park"})
+
+--Halifax Region Metro--
+MATCH
+(r:Region {name: "Halifax Region Metro"})
+CREATE
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Oakfield", location:"Halifax Region Metro", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Crystal Crescent Beach", location:"Halifax Region Metro", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"MacCormacks Beach", location:"Halifax Region Metro", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"McNabs and Lawlor Islands", location:"Halifax Region Metro", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Jerry Lawrence", location:"Halifax Region Metro", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Laurie", location:"Halifax Region Metro", type:"Camping Park"})
+
+--Eastern Shore--
+MATCH
+(r:Region {name: "Eastern Shore"})
+CREATE
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Port Shoreham Beach", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Black Duck Cove", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Tor Bay", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Lochiel Lake", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Sherbrooke", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Marie Joseph", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Rainbow Haven Beach", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Lawrencetown Beach", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Porters Lake", location:"Eastern Shore", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Martinique Beach", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Clam Harbour Beach", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Dollar Lake", location:"Eastern Shore", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Elderbank", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Moose River Gold Mines", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Musquodoboit Valley", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Spry Bay", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Taylor Head", location:"Eastern Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Salsman", location:"Eastern Shore", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Boylston", location:"Eastern Shore", type:"Camping Park"})
+
+--Cape Breton Island--
+MATCH
+(r:Region {name: "Cape Breton Island"})
+CREATE
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Barrachois", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Battery", location:"Cape Breton Island", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Ben Eoin", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Burnt Island", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Cabots Landing", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Cape Smokey", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Dalem Lake", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Dominion Beach", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Dundee", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Groves Point", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Irish Cove", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Lake O' Law", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Lennox Passage", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Mabou", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"MacCormack", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Mira River", location:"Cape Breton Island", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"North River", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Petersfield", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Point Michaud Beach", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Pondville Beach", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Port Hood Station", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Ross Ferry", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"St Anns", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Trout Brook", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Uisge Bàn Falls", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"West Mabou Beach", location:"Cape Breton Island", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Whycocomagh", location:"Cape Breton Island", type:"Camping Park"})
+
+--Northumberland Shore--
+MATCH
+(r:Region {name: "Northumberland Shore"})
+CREATE
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Amherst Shore", location:"Northumberland Shore", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Arisaig", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Balmoral Mills", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Bayfield Beach", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Beaver Mountain", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Blue Sea Beach", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Caribou-Munroes Island", location:"Northumberland Shore", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Fox Harbour", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Green Hill", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Gulf Shore", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Heather Beach", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Melmerby Beach", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Northport Beach", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Pomquet Beach", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Powells Point", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Rushtons Beach", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Salt Springs", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Shinimicas", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Tatamagouche", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Tidnish Dock", location:"Northumberland Shore", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Waterside Beach", location:"Northumberland Shore", type:"Day Use Park"})
+
+--The Bay of Fundy Shore and Annapolis Valley--
+MATCH
+(r:Region {name: "The Bay of Fundy Shore and Annapolis Valley"})
+CREATE
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Annapolis Basin Look Off", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Anthony", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Bell", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Blomidon", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Blomidon Lookoff", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Caddell Rapids Lookoff", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Cape Chignecto", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Cape Split", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Central Grove", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Clairmont", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Coldbrook", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Cottage Cove", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Eatonville", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Falls Lake", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Five Islands", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Lake George", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Lake Midway", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Londonderry", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Lumsden Pond", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"MacElmons Pond", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Mickey Hill", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Savary", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Scots Bay", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Smileys", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Valleyview", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Camping Park"}),
+(r)-[:CONNECTED_TO_PARK]->(:Park {name:"Wentworth", location:"The Bay of Fundy Shore and Annapolis Valley", type:"Day Use Park"})
+
+
+Counting each regions parks
+MATCH
+(r:Region)-[:CONNECTED_TO_PARK]->(:Park)
+WITH
+DISTINCT r.name AS regionName, COUNT(*) AS numberOfParks
+ORDER BY
+numberOfParks DESC LIMIT 1
+RETURN
+regionName, numberOfParks
+

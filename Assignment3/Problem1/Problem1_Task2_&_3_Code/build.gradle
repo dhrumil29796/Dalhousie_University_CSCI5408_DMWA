@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'com.github.KwabenBerko:News-API-Java:1.0.0'
+    implementation 'org.json:json:20210307'
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    implementation 'javax.json:javax.json-api:1.1.4'
+    implementation 'javax.json:javax.json-api:1.1'
+    implementation group: 'org.mongodb', name:'mongodb-driver-core', version: '3.11.2'
+    implementation group: 'org.mongodb', name:'mongo-java-driver', version: '3.11.2'
+    implementation group: 'org.apache.hadoop', name: 'hadoop-common',version: '2.6.5'
+    implementation group: 'org.apache.hadoop', name:'hadoop-mapreduce-client-core', version: '2.6.5'
+    implementation group: 'org.apache.hadoop', name: 'hadoop-client', version: '3.2.0'
+}
+
+test {
+    useJUnitPlatform()
+}
